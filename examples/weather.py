@@ -20,6 +20,12 @@ Press Ctrl+C to exit!
 bus = SMBus(1)
 bme280 = BME280(i2c_dev=bus)
 
+
+# Uncomment the following function to convert Celsius to Fahrenheit
+# def celsius_to_fahrenheit(celsius):
+#     return (celsius * 9 / 5) + 32
+
+
 while True:
     temperature = bme280.get_temperature()
     pressure = bme280.get_pressure()
@@ -28,4 +34,10 @@ while True:
 Pressure: {pressure:05.2f} hPa
 Relative humidity: {humidity:05.2f} %
 """)
+    # Uncomment to display temperature in Fahrenheit instead:
+    # temp_f = celsius_to_fahrenheit(temperature)
+    # logging.info(f"""Temperature: {temp_f:05.2f} °F
+# Pressure: {pressure:05.2f} hPa
+# Relative humidity: {humidity:05.2f} %
+# """)
     time.sleep(1)

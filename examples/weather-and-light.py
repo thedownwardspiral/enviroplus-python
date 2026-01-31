@@ -330,6 +330,11 @@ min_temp = None
 max_temp = None
 
 factor = 2.25
+
+# Uncomment the following function to convert Celsius to Fahrenheit
+# def celsius_to_fahrenheit(celsius):
+#     return (celsius * 9 / 5) + 32
+
 cpu_temps = [get_cpu_temperature()] * 5
 
 # Set up light sensor
@@ -377,11 +382,18 @@ while True:
             max_temp = corr_temperature
 
     temp_string = f"{corr_temperature:.0f}°C"
+    # Uncomment the following lines to display temperature in Fahrenheit:
+    # corr_temp_f = celsius_to_fahrenheit(corr_temperature)
+    # temp_string = f"{corr_temp_f:.0f}°F"
     img = overlay_text(img, (68, 18), temp_string, font_lg, align_right=True)
     _, text_height = text_size(font_lg, temp_string)
     spacing = text_height + 1
     if min_temp is not None and max_temp is not None:
         range_string = f"{min_temp:.0f}-{max_temp:.0f}"
+        # Uncomment the following lines to display range in Fahrenheit:
+        # min_temp_f = celsius_to_fahrenheit(min_temp)
+        # max_temp_f = celsius_to_fahrenheit(max_temp)
+        # range_string = f"{min_temp_f:.0f}-{max_temp_f:.0f}"
     else:
         range_string = "------"
     img = overlay_text(img, (68, 18 + spacing), range_string, font_sm, align_right=True, rectangle=True)

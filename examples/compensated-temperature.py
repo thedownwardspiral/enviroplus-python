@@ -36,6 +36,11 @@ def get_cpu_temperature():
 # temperature down, and increase to adjust up
 factor = 2.25
 
+
+# Uncomment the following function to convert Celsius to Fahrenheit
+# def celsius_to_fahrenheit(celsius):
+#     return (celsius * 9 / 5) + 32
+
 cpu_temps = [get_cpu_temperature()] * 5
 
 while True:
@@ -46,4 +51,7 @@ while True:
     raw_temp = bme280.get_temperature()
     comp_temp = raw_temp - ((avg_cpu_temp - raw_temp) / factor)
     logging.info(f"Compensated temperature: {comp_temp:05.2f} °C")
+    # Uncomment to display temperature in Fahrenheit instead:
+    # comp_temp_f = celsius_to_fahrenheit(comp_temp)
+    # logging.info(f"Compensated temperature: {comp_temp_f:05.2f} °F")
     time.sleep(1.0)

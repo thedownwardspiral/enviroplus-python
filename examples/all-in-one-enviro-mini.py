@@ -99,6 +99,12 @@ def get_cpu_temperature():
 # temperature down, and increase to adjust up
 factor = 2.25
 
+
+# Uncomment the following function to convert Celsius to Fahrenheit
+# def celsius_to_fahrenheit(celsius):
+#     return (celsius * 9 / 5) + 32
+
+
 cpu_temps = [get_cpu_temperature()] * 5
 
 delay = 0.5  # Debounce the proximity tap
@@ -132,12 +138,16 @@ try:
         if mode == 0:
             # variable = "temperature"
             unit = "°C"
+            # Uncomment the following line and comment out the line above for Fahrenheit:
+            # unit = "°F"
             cpu_temp = get_cpu_temperature()
             # Smooth out with some averaging to decrease jitter
             cpu_temps = cpu_temps[1:] + [cpu_temp]
             avg_cpu_temp = sum(cpu_temps) / float(len(cpu_temps))
             raw_temp = bme280.get_temperature()
             data = raw_temp - ((avg_cpu_temp - raw_temp) / factor)
+            # Uncomment the following line to convert to Fahrenheit:
+            # data = celsius_to_fahrenheit(data)
             display_text(variables[mode], data, unit)
 
         if mode == 1:
