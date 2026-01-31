@@ -14,7 +14,7 @@ Designed for environmental monitoring, Enviro+ lets you measure air quality (pol
 ![Enviro Plus pHAT](https://raw.githubusercontent.com/pimoroni/enviroplus-python/main/Enviro-Plus-pHAT.jpg)
 ![Enviro Mini pHAT](https://raw.githubusercontent.com/pimoroni/enviroplus-python/main/Enviro-mini-pHAT.jpg)
 
-:warning: This library now supports Python 3 only, Python 2 is EOL - https://www.python.org/doc/sunset-python-2/
+:warning: This library requires **Python 3.13 or newer** (Debian Trixie). Older Python versions are no longer supported.
 
 ## Install and configure dependencies from GitHub:
 
@@ -48,17 +48,11 @@ sudo apt install python3-numpy python3-smbus python3-pil python3-setuptools
 
 And if you're using a PMS5003 sensor you will need to:
 
-### Bookworm
+### Trixie (Debian 13 / Raspberry Pi OS)
 
 * Enable serial: `raspi-config nonint do_serial_hw 0`
 * Disable serial terminal: `raspi-config nonint do_serial_cons 1`
 * Add `dtoverlay=pi3-miniuart-bt` to your `/boot/firmware/config.txt`
-
-### Bullseye
-
-* Enable serial: `raspi-config nonint set_config_var enable_uart 1 /boot/config.txt`
-* Disable serial terminal: `sudo raspi-config nonint do_serial 1`
-* Add `dtoverlay=pi3-miniuart-bt` to your `/boot/config.txt`
 
 ## Alternate Software & User Projects
 

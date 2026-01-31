@@ -53,7 +53,7 @@ def setup():
         adc = ads1015.ADS1015(i2c_addr=0x49)
         adc_type = adc.detect_chip_type()
         _is_available = True
-    except IOError:
+    except OSError:
         _is_available = False
         return
 

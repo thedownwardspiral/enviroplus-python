@@ -4,10 +4,10 @@
 import colorsys
 import os
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 import numpy
-import pytz
 import st7735
 from astral.geocoder import database, lookup
 from astral.sun import sun
@@ -82,9 +82,8 @@ def sun_moon_time(city_name, time_zone):
     city = lookup(city_name, database())
 
     # Datetime objects for yesterday, today, tomorrow
-    utc = pytz.utc
-    utc_dt = datetime.now(tz=utc)
-    local_dt = utc_dt.astimezone(pytz.timezone(time_zone))
+    utc_dt = datetime.now(tz=timezone.utc)
+    local_dt = utc_dt.astimezone(ZoneInfo(time_zone))
     today = local_dt.date()
     yesterday = today - timedelta(1)
     tomorrow = today + timedelta(1)
