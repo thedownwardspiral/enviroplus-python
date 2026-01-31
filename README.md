@@ -16,6 +16,14 @@ Designed for environmental monitoring, Enviro+ lets you measure air quality (pol
 
 :warning: This library requires **Python 3.13 or newer** (Debian Trixie). Older Python versions are no longer supported.
 
+## Supported Platforms
+
+| Platform | Debian Version | Python Version | Status |
+|----------|----------------|----------------|--------|
+| Raspberry Pi OS | Trixie (Debian 13) | 3.13 | Supported |
+
+For older Debian versions (Bullseye, Bookworm), use enviroplus v1.0.x.
+
 ## Install and configure dependencies from GitHub:
 
 * `git clone https://github.com/pimoroni/enviroplus-python`

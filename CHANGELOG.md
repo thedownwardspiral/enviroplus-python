@@ -1,3 +1,16 @@
+1.1.0
+-----
+
+* BREAKING: Require Python 3.13+ (Debian Trixie)
+* Drop support for Python 3.7-3.12 and older Debian versions (Bullseye, Bookworm)
+* Replace deprecated `pytz` with `zoneinfo` in weather-and-light example
+* Replace `IOError` with `OSError` in gas sensor module
+* Replace standalone `mock` package with `unittest.mock`
+* Update CI workflows to test only Python 3.13
+* Remove deprecated `.stickler.yml` (project uses ruff for linting)
+* Fix MANIFEST.in file references
+* Update tox.ini for Python 3.13
+
 1.0.2
 -----
 
